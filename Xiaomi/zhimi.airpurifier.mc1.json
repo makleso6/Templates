@@ -157,6 +157,25 @@
           }
         }
       ]
+    },
+    {
+      "name": "Silent",
+      "visible": true,
+      "type": "Switch",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "getProp": "mode",
+            "setProp": "mode",
+            "map": {
+              "false": "favorite",
+              "true": "silent"
+            }
+          }
+        }
+      ]
     }
   ]
 }
