@@ -1,0 +1,162 @@
+{
+  "manufacturer": "Xiaomi",
+  "model": "Mi Smart Air Purifier",
+  "modelId": "zhimi.airpurifier.mc1",
+  "catalogId": -1,
+  "services": [
+    {
+      "type": "Lightbulb",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "id": "2.1",
+            "setProp": "led",
+            "map": {
+              "false": "off",
+              "true": "on"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "AirPurifier",
+      "characteristics": [
+        {
+          "type": "Active",
+          "link": {
+            "type": "String",
+            "setProp": "power",
+            "map": {
+              "0": "off",
+              "1": "on"
+            }
+          }
+        },
+        {
+          "type": "CurrentAirPurifierState",
+          "link": {
+            "type": "String",
+            "getProp": "power",
+            "map": {
+              "0": "off",
+              "2": "on"
+            }
+          }
+        },
+        {
+          "type": "TargetAirPurifierState",
+          "link": {
+            "type": "String",
+            "id": "2.2",
+            "setProp": "mode",
+            "map": {
+              "AUTO": "auto",
+              "MANUAL": "favorite"
+            }
+          }
+        },
+        {
+          "type": "RotationSpeed",
+          "maxValue": 10,
+          "link": {
+            "type": "Integer",
+            "id": "8.1",
+            "setProp": "level_favorite",
+            "getProp": "favorite_level"
+          }
+        },
+        {
+          "type": "LockPhysicalControls",
+          "link": {
+            "type": "String",
+            "setProp": "child_lock",
+            "map": {
+              "CONTROL_LOCK_DISABLED": "off",
+              "CONTROL_LOCK_ENABLED": "on"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "HumiditySensor",
+      "characteristics": [
+        {
+          "type": "CurrentRelativeHumidity",
+          "link": {
+            "type": "Integer",
+            "getProp": "humidity"
+          }
+        }
+      ]
+    },
+    {
+      "type": "AirQualitySensor",
+      "logics": [
+        {
+          "type": "AirQualityFromPM2_5Density"
+        }
+      ],
+      "characteristics": [
+        {
+          "type": "PM2_5Density",
+          "link": {
+            "type": "Integer",
+            "getProp": "aqi"
+          }
+        }
+      ]
+    },
+    {
+      "type": "TemperatureSensor",
+      "characteristics": [
+        {
+          "type": "CurrentTemperature",
+          "link": {
+            "type": "Integer",
+            "getProp": "temp_dec",
+            "scale": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "type": "FilterMaintenance",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "getProp": "filter1_life",
+            "map": {
+              "FILTER_OK": "31~9999999",
+              "CHANGE_FILTER": "0~30"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Buzzer",
+      "visible": true,
+      "type": "Switch",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "getProp": "buzzer",
+            "setProp": "buzzer",
+            "map": {
+              "false": "off",
+              "true": "on"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

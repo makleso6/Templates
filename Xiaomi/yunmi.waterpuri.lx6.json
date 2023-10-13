@@ -1,0 +1,110 @@
+{
+  "manufacturer": "Xiaomi",
+  "model": "Mi",
+  "modelId": "yunmi.waterpuri.lx6",
+  "catalogId": -1,
+  "services": [
+    {
+      "type": "TemperatureSensor",
+      "name": "Tap water quality",
+      "characteristics": [
+        {
+          "type": "CurrentTemperature",
+          "link": {
+            "type": "Double",
+            "getProp": "tds_in"
+          }
+        }
+      ]
+    },
+    {
+      "type": "LightSensor",
+      "name": "Filtered water quality",
+      "characteristics": [
+        {
+          "type": "CurrentAmbientLightLevel",
+          "link": {
+            "type": "Double",
+            "getProp": "tds_out"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FilterMaintenance",
+      "name": "PP cotton filter",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "getProp": "f1_usedtime",
+            "map": {
+              "FILTER_OK": "0~4319",
+              "CHANGE_FILTER": "4320"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "FilterMaintenance",
+      "name": "Front active carbon filter",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "getProp": "f2_usedtime",
+            "map": {
+              "FILTER_OK": "0~8639",
+              "CHANGE_FILTER": "8640"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "FilterMaintenance",
+      "name": "RO filter",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "getProp": "f3_usedtime",
+            "map": {
+              "FILTER_OK": "0~17279",
+              "CHANGE_FILTER": "17280"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "FilterMaintenance",
+      "name": "Rear active carbon filter",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "getProp": "f4_usedtime",
+            "map": {
+              "FILTER_OK": "0~8639",
+              "CHANGE_FILTER": "8640"
+            }
+          }
+        },
+        {
+          "type": "FilterLifeLevel",
+          "link": {
+            "type": "Double",
+            "getProp": "f4_usedtime",
+            "inFunc": "value / 8640 * 100"            
+          }
+        }
+      ]
+    }
+  ]
+}

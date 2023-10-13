@@ -1,0 +1,129 @@
+{
+  "manufacturer": "Xiaomi",
+  "model": "Mi",
+  "modelId": "zhimi.humidifier.ca1",
+  "catalogId": -1,
+  "services": [
+    {
+      "type": "HumidifierDehumidifier",
+      "characteristics": [
+        {
+          "type": "Active",
+          "link": {
+            "type": "String",
+            "setProp": "power",
+            "map": {
+              "0": "off",
+              "1": "on"
+            }
+          }
+        },
+        {
+          "type": "CurrentHumidifierDehumidifierState",
+          "link": {
+            "type": "String",
+            "getProp": "power",
+            "map": {
+              "0": "off",
+              "2": "on"
+            }
+          }
+        },
+        {
+          "type": "TargetHumidifierDehumidifierState",
+          "validValues": "HUMIDIFIER"
+        },
+        {
+          "type": "CurrentRelativeHumidity",
+          "link": {
+            "type": "Integer",
+            "getProp": "humidity",
+            "id": "2.3"
+          }
+        },
+        {
+          "type": "RotationSpeed",
+          "maxValue": 3,
+          "link": {
+            "type": "String",
+            "setProp": "mode",
+            "getProp": "mode",
+            "map": {
+              "0": "auto",
+              "1": "silent",
+              "2": "medium",
+              "3": "high"
+            }
+          }
+        },
+        {
+          "type": "LockPhysicalControls",
+          "link": {
+            "type": "String",
+            "setProp": "child_lock",
+            "map": {
+              "CONTROL_LOCK_DISABLED": "off",
+              "CONTROL_LOCK_ENABLED": "on"
+            }
+          }
+        },
+        {
+          "type": "WaterLevel",
+          "link": {
+            "type": "Int",
+            "getProp": "depth"
+          }
+        }
+      ]
+    },
+    {
+      "type": "TemperatureSensor",
+      "characteristics": [
+        {
+          "type": "CurrentTemperature",
+          "link": {
+            "type": "Double",
+            "getProp": "temp_dec",
+            "scale": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "type": "Lightbulb",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "getProp": "led_b",
+            "setProp": "led_b",
+            "map": {
+              "false": "2",
+              "true": "0"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Buzzer",
+      "visible": true,
+      "type": "Switch",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "getProp": "buzzer",
+            "setProp": "buzzer",
+            "map": {
+              "false": "off",
+              "true": "on"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

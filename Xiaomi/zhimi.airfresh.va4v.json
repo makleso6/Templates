@@ -1,0 +1,250 @@
+{
+  "manufacturer": "Xiaomi",
+  "model": "Smartmi Fresh Air System XFXTDFR02ZM",
+  "modelId": "zhimi.airfresh.va4",
+  "services": [
+    {
+      "type": "AirPurifier",
+      "characteristics": [
+        {
+          "type": "Active",
+          "link": {
+            "type": "String",
+            "id": "2.1",
+            "setProp": "power",
+            "map": {
+              "0": "off",
+              "1": "on"
+            }
+          }
+        },
+        {
+          "type": "CurrentAirPurifierState",
+          "link": {
+            "type": "String",
+            "id": "2.2",
+            "getProp": "power",
+            "map": {
+              "INACTIVE": "off",
+              "PURIFYING_AIR": "on"
+            }
+          }
+        },
+        {
+          "type": "TargetAirPurifierState",
+          "link": {
+            "type": "String",
+            "id": "2.3",
+            "setProp": "mode",
+            "map": {
+              "AUTO": "auto",
+              "MANUAL": "silent"
+            }
+          }
+        },
+        {
+          "type": "LockPhysicalControls",
+          "link": {
+            "type": "String",
+            "id": "7.1",
+            "setProp": "child_lock",
+            "getProp": "child_lock",
+            "map": {
+              "CONTROL_LOCK_DISABLED": "off",
+              "CONTROL_LOCK_ENABLED": "on"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Углекислый газ",
+      "visible": false,
+      "type": "CarbonDioxideSensor",
+      "characteristics": [
+        {
+          "type": "CarbonDioxideLevel",
+          "link": {
+            "type": "Integer",
+            "id": "3.2",
+            "getProp": "co2"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Качество воздуха",
+      "visible": false,
+      "type": "AirQualitySensor",
+      "logics": [
+        {
+          "type": "AirQualityFromPM2_5Density"
+        }
+      ],
+      "characteristics": [
+        {
+          "type": "PM2_5Density",
+          "link": {
+            "type": "Integer",
+            "id": "3.1",
+            "getProp": "aqi"
+          }
+        }
+      ]
+    },
+    {
+      "visible": false,
+      "type": "FilterMaintenance",
+      "characteristics": [
+        {
+          "type": "FilterChangeIndication",
+          "link": {
+            "type": "Integer",
+            "id": "4.1",
+            "getProp": "filter_life"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Температура",
+      "visible": false,
+      "type": "TemperatureSensor",
+      "characteristics": [
+        {
+          "type": "CurrentTemperature",
+          "link": {
+            "type": "Double",
+            "id": "4.2",
+            "getProp": "temp_dec"
+          }
+        }
+      ]
+    },
+    {
+      "type": "HumiditySensor",
+      "characteristics": [
+        {
+          "type": "CurrentRelativeHumidity",
+          "link": {
+            "type": "Double",
+            "id": "4.3",
+            "getProp": "humidity"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Нагрев",
+      "visible": false,
+      "type": "Switch",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "type": "String",
+            "id": "2.3",
+            "setProp": "ptc_state",
+            "getProp": "ptc_state",
+            "map": {
+              "false": "off",
+              "true": "on"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "link": {
+        "type": "String",
+        "setProp": "buzzer",
+        "getProp": "buzzer",
+        "map": {
+          "false": "off",
+          "true": "on"
+        }
+      },
+      "name": "Звук",
+      "description": "",
+      "type": "Boolean",
+      "value": true
+    },
+    {
+      "link": {
+        "type": "String",
+        "setProp": "set_ptc_state",
+        "getProp": "ptc_state",
+        "map": {
+          "false": "off",
+          "true": "on"
+        }
+      },
+      "name": "Нагрев",
+      "description": "",
+      "type": "Boolean",
+      "value": true
+    },
+    {
+      "link": {
+        "type": "Integer",
+        "setProp": "led_level",
+        "getProp": "led_level"
+      },
+      "name": "Дисплей",
+      "description": "",
+      "type": "String",
+      "values": [
+        {
+          "value": "0",
+          "name": "Bright"
+        },
+        {
+          "value": "1",
+          "name": "Dimmed"
+        },
+        {
+          "value": "2",
+          "name": "Off"
+        }
+      ]
+    },
+    {
+      "link": {
+        "type": "String",
+        "setProp": "mode",
+        "getProp": "mode"
+      },
+      "name": "Режим",
+      "description": "",
+      "type": "String",
+      "values": [
+        {
+          "value": "auto",
+          "name": "Авто"
+        },
+        {
+          "value": "silent",
+          "name": "Ночной режим"
+        },
+        {
+          "value": "interval",
+          "name": "Интервал"
+        },
+        {
+          "value": "low",
+          "name": "Низкий"
+        },
+        {
+          "value": "middle",
+          "name": "Средний"
+        },
+        {
+          "value": "strong",
+          "name": "Максимальный"
+        }
+      ]
+    }
+  ]
+}
