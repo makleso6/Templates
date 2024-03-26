@@ -1,0 +1,130 @@
+{
+  "manufacturer": "IKEA",
+  "model": "TRADFRI bulb GU10 CWS 345lm",
+  "manufacturerId": "IKEA of Sweden",
+  "modelId": "TRADFRI bulb GU10 CWS 345lm",
+  "catalogId": 3648,
+  "status": "Done",
+  "init": [
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0006_OnOff",
+        "attribute": "0000_OnOff"
+      },
+      "bind": true,
+      "report": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0000_CurrentLevel"
+      },
+      "bind": true,
+      "report": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0300_ColorControl",
+        "attribute": [
+          "0003_CurrentX",
+          "0004_CurrentY"
+        ]
+      },
+      "bind": true,
+      "report": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0300_ColorControl",
+        "attribute": "0007_ColorTemperature"
+      },
+      "bind": true,
+      "report": true
+    }
+  ],
+  "services": [
+    {
+      "type": "Lightbulb",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0006_OnOff",
+            "attribute": "0000_OnOff",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "Brightness",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0008_LevelControl",
+            "attribute": "0000_CurrentLevel",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "Hue",
+          "link": {
+            "type": "HSV",
+            "endpoint": 1,
+            "cluster": "0300_ColorControl",
+            "command": "000A_ReportAttributesCommand",
+            "param": "CurrentXY",
+            "ClusterSpecificCommand": false
+          }
+        },
+        {
+          "type": "Saturation"
+        },
+        {
+          "type": "ColorTemperature",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0300_ColorControl",
+            "attribute": "0007_ColorTemperature",
+            "param": "Lightbulb",
+            "min": 157,
+            "max": 497
+          }
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0006_OnOff",
+        "attribute": "4003_StartUpOnOff"
+      },
+      "name": "После восстановления питания",
+      "type": "Integer",
+      "init": true,
+      "value": 3,
+      "values": [
+        {
+          "value": 0,
+          "name": "Всегда выключено"
+        },
+        {
+          "value": 1,
+          "name": "Всегда включено"
+        },
+        {
+          "value": 2,
+          "name": "Чередование вкл/выкл"
+        },
+        {
+          "value": 3,
+          "name": "Последнее состояние"
+        }
+      ]
+    }
+  ]
+}

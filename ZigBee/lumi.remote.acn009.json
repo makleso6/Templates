@@ -1,0 +1,86 @@
+{
+  "manufacturer": "Aqara",
+  "model": "WXKG17LM",
+  "manufacturerId": "LUMI",
+  "modelId": "lumi.remote.acn009",
+  "catalogId": 3273,
+  "issue": "https://github.com/sprut/Hub/issues/1296",
+  "status": "Done",
+  "date": "03.03.2023",
+  "ali": "https://aliclick.shop/s/88w5g9",
+  "template": [
+    "/_Xiaomi/Battery00F7.json",
+    "/_Xiaomi/0125_SensorPressMode.json"
+  ],
+  "services": [
+    {
+      "name": "Левая кнопка",
+      "type": "StatelessProgrammableSwitch",
+      "characteristics": [
+        {
+          "type": "ProgrammableSwitchEvent",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0012_MultistateInputBasic",
+            "attribute": "0055_PresentValue",
+            "map": {
+              "SINGLE_PRESS": "1",
+              "DOUBLE_PRESS": "2",
+              "LONG_PRESS": "0"
+            }
+          }
+        },
+        {
+          "type": "ServiceLabelIndex",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Правая кнопка",
+      "type": "StatelessProgrammableSwitch",
+      "characteristics": [
+        {
+          "type": "ProgrammableSwitchEvent",
+          "link": {
+            "endpoint": 2,
+            "cluster": "0012_MultistateInputBasic",
+            "attribute": "0055_PresentValue",
+            "map": {
+              "SINGLE_PRESS": "1",
+              "DOUBLE_PRESS": "2",
+              "LONG_PRESS": "0"
+            }
+          }
+        },
+        {
+          "type": "ServiceLabelIndex",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Правая и Левая",
+      "type": "StatelessProgrammableSwitch",
+      "characteristics": [
+        {
+          "type": "ProgrammableSwitchEvent",
+          "link": {
+            "endpoint": 3,
+            "cluster": "0012_MultistateInputBasic",
+            "attribute": "0055_PresentValue",
+            "map": {
+              "SINGLE_PRESS": "1"
+            }
+          },
+          "validValues": "SINGLE_PRESS"
+        },
+        {
+          "type": "ServiceLabelIndex",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,7 +1,7 @@
 {
   "manufacturer": "Xiaomi",
-  "model": "Mi Smart Air Purifier",
-  "modelId": "zhimi.airpurifier.mc1",
+  "model": "Smartmi Fresh Air System",
+  "modelId": "zhimi.airfresh.va4",
   "catalogId": -1,
   "services": [
     {
@@ -10,12 +10,12 @@
         {
           "type": "On",
           "link": {
-            "type": "String",
+            "type": "Integer",
             "id": "2.1",
-            "setProp": "led",
+            "setProp": "led_level",
             "map": {
-              "false": "off",
-              "true": "on"
+              "false": "2",
+              "true": "0"
             }
           }
         }
@@ -54,29 +54,49 @@
             "setProp": "mode",
             "map": {
               "AUTO": "auto",
-              "MANUAL": "favorite"
+              "MANUAL": "low"
             }
           }
         },
         {
           "type": "RotationSpeed",
-          "maxValue": 10,
+          "maxValue": 4,
           "link": {
-            "type": "Integer",
-            "id": "8.1",
-            "setProp": "set_level_favorite",
-            "getProp": "favorite_level"
+            "type": "String",
+            "setProp": "set_mode",
+            "getProp": "mode",
+            "map": {
+              "0": "auto",
+              "1": "silent",
+              "2": "low",
+              "3": "middle",
+              "4": "strong"
+            }
           }
         },
         {
           "type": "LockPhysicalControls",
           "link": {
             "type": "String",
-            "setProp": "child_lock",
+            "getProp": "child_lock",
+            "setProp": "set_child_lock",
             "map": {
               "CONTROL_LOCK_DISABLED": "off",
               "CONTROL_LOCK_ENABLED": "on"
             }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Углекислый газ",
+      "type": "CarbonDioxideSensor",
+      "characteristics": [
+        {
+          "type": "CarbonDioxideLevel",
+          "link": {
+            "type": "Integer",
+            "getProp": "co2"
           }
         }
       ]
@@ -116,25 +136,8 @@
         {
           "type": "CurrentTemperature",
           "link": {
-            "type": "Integer",
-            "getProp": "temp_dec",
-            "scale": 0.1
-          }
-        }
-      ]
-    },
-    {
-      "type": "FilterMaintenance",
-      "characteristics": [
-        {
-          "type": "FilterChangeIndication",
-          "link": {
-            "type": "Integer",
-            "getProp": "filter1_life",
-            "map": {
-              "FILTER_OK": "31~9999999",
-              "CHANGE_FILTER": "0~30"
-            }
+            "type": "Double",
+            "getProp": "temp_dec"
           }
         }
       ]
@@ -159,7 +162,7 @@
       ]
     },
     {
-      "name": "Silent",
+      "name": "PTC",
       "visible": true,
       "type": "Switch",
       "characteristics": [
@@ -167,11 +170,11 @@
           "type": "On",
           "link": {
             "type": "String",
-            "getProp": "mode",
-            "setProp": "set_mode",
+            "getProp": "ptc_state",
+            "setProp": "set_ptc_state",
             "map": {
-              "false": "favorite",
-              "true": "silent"
+              "false": "off",
+              "true": "on"
             }
           }
         }
