@@ -84,13 +84,13 @@
         },
         {
           "type": "ColorTemperature",
+          "minValue": 250,
+          "maxValue": 454,
           "link": {
             "endpoint": 1,
             "cluster": "0300_ColorControl",
             "attribute": "0007_ColorTemperature",
             "param": "Lightbulb",
-            "min": 157,
-            "max": 497
           }
         }
       ]
