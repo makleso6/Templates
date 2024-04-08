@@ -1,0 +1,91 @@
+﻿{
+  "manufacturer": "Aqara",
+  "model": "ZNXDD01LM",
+  "manufacturerId": "(Aqara|LUMI)",
+  "modelId": "lumi.light.acn003",
+  "catalogId": 3674,
+  "issue": "https://github.com/sprut/Hub/issues/2036",
+  "status": "Done",
+  "date": "03.03.2023",
+  "services": [
+    {
+      "type": "Lightbulb",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0006_OnOff",
+            "attribute": "0000_OnOff",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "Brightness",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0008_LevelControl",
+            "attribute": "0000_CurrentLevel",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "ColorTemperature",
+          "minValue": 153,
+          "maxValue": 370,
+          "link": {
+            "endpoint": 1,
+            "cluster": "0300_ColorControl",
+            "attribute": "0007_ColorTemperature",
+            "param": "Lightbulb"
+          }
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "FCC0_ManufacturerSpecific",
+        "attribute": "0201_SwitchPowerMemory",
+        "manufacturerCode": 4447
+      },
+      "name": "Память состояния питания",
+      "description": "После восстановления питания статус устанавливается в состояние до пропажи питания",
+      "type": "Boolean",
+      "init": true,
+      "value": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0013_OffTransitionTime"
+      },
+      "name": "Время выключения",
+      "type": "Integer",
+      "value": 15
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0012_OnTransitionTime"
+      },
+      "name": "Время включения",
+      "type": "Integer",
+      "value": 15
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0010_OnOffTransitionTime"
+      },
+      "name": "Время включения/выключения",
+      "type": "Integer",
+      "value": 15
+    }
+  ]
+}

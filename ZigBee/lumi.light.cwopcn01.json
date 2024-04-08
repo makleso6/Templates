@@ -1,0 +1,85 @@
+{
+  "manufacturer": "Aqara",
+  "model": "AQARAXDD11LM",
+  "manufacturerId": "(Aqara|LUMI)",
+  "modelId": "lumi.light.cwopcn01",
+  "catalogId": 1385,
+  "status": "Done",
+  "init": [
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0006_OnOff",
+        "attribute": "0000_OnOff"
+      },
+      "bind": true,
+      "report": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0000_CurrentLevel"
+      },
+      "bind": true,
+      "report": true
+    },
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0300_ColorControl",
+        "attribute": "0007_ColorTemperature"
+      },
+      "bind": true,
+      "report": true
+    }
+  ],
+  "services": [
+    {
+      "type": "Lightbulb",
+      "characteristics": [
+        {
+          "type": "On",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0006_OnOff",
+            "attribute": "0000_OnOff",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "Brightness",
+          "link": {
+            "endpoint": 1,
+            "cluster": "0008_LevelControl",
+            "attribute": "0000_CurrentLevel",
+            "param": "Lightbulb"
+          }
+        },
+        {
+          "type": "ColorTemperature",
+          "minValue": 175,
+          "maxValue": 370,
+          "link": {
+            "endpoint": 1,
+            "cluster": "0300_ColorControl",
+            "attribute": "0007_ColorTemperature",
+            "param": "Lightbulb"
+          }
+        }
+      ]
+    }
+  ],
+  "options": [
+    {
+      "link": {
+        "endpoint": 1,
+        "cluster": "0008_LevelControl",
+        "attribute": "0010_OnOffTransitionTime"
+      },
+      "name": "Время включения/выключения",
+      "type": "Integer",
+      "value": 7
+    }
+  ]
+}
