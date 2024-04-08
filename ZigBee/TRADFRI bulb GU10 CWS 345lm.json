@@ -74,7 +74,7 @@
             "type": "HSV",
             "endpoint": 1,
             "cluster": "0300_ColorControl",
-            "command": "000A_ReportAttributesCommand",
+            "command": "0001_ReadAttributesResponse",
             "param": "CurrentXY",
             "ClusterSpecificCommand": false
           }
@@ -106,7 +106,7 @@
       "name": "После восстановления питания",
       "type": "Integer",
       "init": true,
-      "value": 3,
+      "value": 255,
       "values": [
         {
           "value": 0,
@@ -121,7 +121,7 @@
           "name": "Чередование вкл/выкл"
         },
         {
-          "value": 3,
+          "value": 255,
           "name": "Последнее состояние"
         }
       ]
