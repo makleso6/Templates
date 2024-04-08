@@ -1,12 +1,10 @@
 {
   "manufacturer": "Aqara",
-  "model": "ZNXDD01LM",
+  "model": "SDL01LM",
   "manufacturerId": "(Aqara|LUMI)",
-  "modelId": "lumi.light.acn003",
-  "catalogId": 3674,
-  "issue": "https://github.com/sprut/Hub/issues/2036",
+  "modelId": "lumi.light.acn128",
+  "catalogId": 4961,
   "status": "Done",
-  "date": "03.03.2023",
   "init": [
     {
       "link": {
@@ -60,7 +58,7 @@
         },
         {
           "type": "ColorTemperature",
-          "minValue": 153,
+          "minValue": 166,
           "maxValue": 370,
           "link": {
             "endpoint": 1,
@@ -76,24 +74,12 @@
     {
       "link": {
         "endpoint": 1,
-        "cluster": "FCC0_ManufacturerSpecific",
-        "attribute": "0201_SwitchPowerMemory",
-        "manufacturerCode": 4447
-      },
-      "name": "Память состояния питания",
-      "description": "После восстановления питания статус устанавливается в состояние до пропажи питания",
-      "type": "Boolean",
-      "init": true,
-      "value": true
-    },
-    {
-      "link": {
-        "endpoint": 1,
         "cluster": "0008_LevelControl",
         "attribute": "0013_OffTransitionTime"
       },
       "name": "Время выключения",
       "type": "Integer",
+      "init": false,
       "value": 15
     },
     {
@@ -104,17 +90,38 @@
       },
       "name": "Время включения",
       "type": "Integer",
+      "init": false,
       "value": 15
     },
     {
       "link": {
         "endpoint": 1,
-        "cluster": "0008_LevelControl",
-        "attribute": "0010_OnOffTransitionTime"
+        "cluster": "FCC0_ManufacturerSpecific",
+        "attribute": "0517_StartUpOnOff",
+        "manufacturerCode": 4447
       },
-      "name": "Время включения/выключения",
+      "name": "После восстановления питания",
       "type": "Integer",
-      "value": 15
+      "init": true,
+      "value": 1,
+      "values": [
+        {
+          "value": 2,
+          "name": "Всегда выключено"
+        },
+        {
+          "value": 0,
+          "name": "Всегда включено"
+        },
+        {
+          "value": 3,
+          "name": "Чередование вкл/выкл"
+        },
+        {
+          "value": 1,
+          "name": "Последнее состояние"
+        }
+      ]
     }
   ]
 }
