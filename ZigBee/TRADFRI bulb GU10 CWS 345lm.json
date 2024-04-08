@@ -90,7 +90,7 @@
             "endpoint": 1,
             "cluster": "0300_ColorControl",
             "attribute": "0007_ColorTemperature",
-            "param": "Lightbulb",
+            "param": "Lightbulb"
           }
         }
       ]
